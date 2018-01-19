@@ -11,9 +11,10 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/lib_common" />
             <option value="$PROJECT_DIR$/lib_coremodel" />
-            <option value="$PROJECT_DIR$/lib_mine" />
             <option value="$PROJECT_DIR$/lib_opensource" />
             <option value="$PROJECT_DIR$/module_login" />
+            <option value="$PROJECT_DIR$/module_mine" />
+            <option value="$PROJECT_DIR$/module_publish" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

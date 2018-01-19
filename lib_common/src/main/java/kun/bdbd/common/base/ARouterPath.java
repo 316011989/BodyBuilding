@@ -11,11 +11,6 @@ package kun.bdbd.common.base;
 public class ARouterPath {
 
     /**
-     * 关于Fragment
-     */
-    public static final String AboutFgt = "/about/aboutfragment";
-
-    /**
      * 欢迎页面Activity
      */
     public static final String WelcomeActivity = "/login/welcomeactivity";
@@ -35,5 +30,18 @@ public class ARouterPath {
      */
     public static final String MainActivity = "/app/mainactivity";
 
+    /**
+     * 关于Fragment
+     */
+    public static final String AboutFgt = "/about/aboutfragment";
 
+    /**
+     * 我的Fragment
+     */
+    public static final String MineFgt = "/mine/minefragment";
+
+    /**
+     * 发布Fragment
+     */
+    public static final String PublishFgt = "/publish/publishfragment";
 }

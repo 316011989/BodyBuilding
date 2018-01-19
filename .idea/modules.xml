@@ -7,9 +7,11 @@
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/lib_common/lib_common.iml" filepath="$PROJECT_DIR$/lib_common/lib_common.iml" />
       <module fileurl="file://$PROJECT_DIR$/lib_coremodel/lib_coremodel.iml" filepath="$PROJECT_DIR$/lib_coremodel/lib_coremodel.iml" />
-      <module fileurl="file://$PROJECT_DIR$/lib_mine/lib_mine.iml" filepath="$PROJECT_DIR$/lib_mine/lib_mine.iml" />
+      <module fileurl="file://D:\workspace\BodyBuilding\lib_mine\lib_mine.iml" filepath="D:\workspace\BodyBuilding\lib_mine\lib_mine.iml" />
       <module fileurl="file://$PROJECT_DIR$/lib_opensource/lib_opensource.iml" filepath="$PROJECT_DIR$/lib_opensource/lib_opensource.iml" />
       <module fileurl="file://$PROJECT_DIR$/module_login/module_login.iml" filepath="$PROJECT_DIR$/module_login/module_login.iml" />
+      <module fileurl="file://$PROJECT_DIR$/module_mine/module_mine.iml" filepath="$PROJECT_DIR$/module_mine/module_mine.iml" />
+      <module fileurl="file://$PROJECT_DIR$/module_publish/module_publish.iml" filepath="$PROJECT_DIR$/module_publish/module_publish.iml" />
     </modules>
   </component>
 </project>

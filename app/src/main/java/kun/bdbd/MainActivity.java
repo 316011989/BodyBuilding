@@ -1,11 +1,8 @@
-package kun;
+package kun.bdbd;
 
 import android.databinding.DataBindingUtil;
-import android.databinding.ViewDataBinding;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.design.widget.BottomNavigationView;
 import android.view.MenuItem;
 
@@ -15,8 +12,6 @@ import com.alibaba.android.arouter.launcher.ARouter;
 import java.util.ArrayList;
 import java.util.List;
 
-import kun.bdbd.FragmentAdapter;
-import kun.bdbd.R;
 import kun.bdbd.common.base.ARouterPath;
 import kun.bdbd.common.base.BaseActivity;
 import kun.bdbd.common.base.BaseFragment;
@@ -66,8 +61,8 @@ public class MainActivity extends BaseActivity {
         mPager.setOffscreenPageLimit(3);
 
         BaseFragment fragmentNews = (BaseFragment) ARouter.getInstance().build(ARouterPath.AboutFgt).navigation();
-        BaseFragment fragmentGirls = (BaseFragment) ARouter.getInstance().build(ARouterPath.AboutFgt).navigation();
-        BaseFragment fragmentAbout = (BaseFragment) ARouter.getInstance().build(ARouterPath.AboutFgt).navigation();
+        BaseFragment fragmentGirls = (BaseFragment) ARouter.getInstance().build(ARouterPath.PublishFgt).navigation();
+        BaseFragment fragmentAbout = (BaseFragment) ARouter.getInstance().build(ARouterPath.MineFgt).navigation();
 
         mFragments.add(fragmentNews);
         mFragments.add(fragmentGirls);

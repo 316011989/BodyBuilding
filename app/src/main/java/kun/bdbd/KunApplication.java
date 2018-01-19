@@ -1,4 +1,4 @@
-package kun;
+package kun.bdbd;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.facebook.drawee.backends.pipeline.Fresco;

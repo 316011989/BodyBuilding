@@ -42,6 +42,8 @@ dependencies {
         implementation project(':lib_coremodel')
     } else {
         implementation project(':module_login')
+        implementation project(':module_mine')
+        implementation project(':module_publish')
     }
     annotationProcessor deps.arouter.compiler
 }
