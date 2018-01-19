@@ -11,43 +11,29 @@ package kun.bdbd.common.base;
 public class ARouterPath {
 
     /**
-     * 妹子列表Activity
-     */
-    public static final String GirlsListAty = "/girls/aty/list";
-
-    /**
-     * 妹子列表动态Activity
-     */
-    public static final String DynaGirlsListAty = "/girls/dynaty/list";
-
-    /**
-     * 新闻列表Activity
-     */
-    public static final String NewsListAty = "/news/aty/list";
-
-    /**
-     * 妹子列表Fragment
-     */
-    public static final String GirlsListFgt = "/girls/aty/fgt/list";
-
-    /**
-     * 新闻列表Fragment
-     */
-    public static final String NewsListFgt = "/news/fgt/list";
-
-    /**
      * 关于Fragment
      */
-    public static final String AboutFgt = "/about/fgt/fragment";
+    public static final String AboutFgt = "/about/aboutfragment";
 
     /**
      * 欢迎页面Activity
      */
-    public static final String WelcomeActivity = "/login/aty/welcome";
+    public static final String WelcomeActivity = "/login/welcomeactivity";
 
     /**
      * 登录页面Activity
      */
-    public static final String LoginActivity = "/login/aty/login";
+    public static final String LoginActivity = "/login/loginactivity";
+
+    /**
+     * 注册页面Activity
+     */
+    public static final String RegisteActivity = "/login/registeactivity";
+
+    /**
+     * 主页面Activity
+     */
+    public static final String MainActivity = "/app/mainactivity";
+
 
 }

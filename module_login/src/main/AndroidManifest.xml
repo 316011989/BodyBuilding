@@ -3,8 +3,13 @@
     package="kun.module_login">
 
     <application>
-        <activity android:name=".WelcomeActivity" />
-        <activity android:name=".LoginActivity" />
+        <activity
+            android:name=".WelcomeActivity"
+            android:theme="@style/FullscreenTheme" />
+
+        <activity
+
+            android:name=".LoginActivity" />
     </application>
 
 </manifest>
