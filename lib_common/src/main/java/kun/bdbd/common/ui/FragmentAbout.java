@@ -16,6 +16,7 @@ import kun.bdbd.common.R;
 import kun.bdbd.common.base.ARouterPath;
 import kun.bdbd.common.base.BaseFragment;
 import kun.bdbd.common.databinding.FragmentAboutBinding;
+import kun.bdbd.coremodel.viewmodel.BaseViewModel;
 
 /**
  * 关于页面
