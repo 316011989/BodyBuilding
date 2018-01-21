@@ -6,7 +6,7 @@ import java.util.List;
  * Created by dxx on 2017/11/8.
  */
 
-public class GirlsData {
+public class VideoData {
 
     private boolean error;
     private List<ResultsBean> results;

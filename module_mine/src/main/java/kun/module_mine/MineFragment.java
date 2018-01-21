@@ -7,16 +7,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.alibaba.android.arouter.launcher.ARouter;
-import com.apkfuns.logutils.LogUtils;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import kun.bdbd.common.base.ARouterPath;
 import kun.bdbd.common.base.BaseFragment;
-import kun.bdbd.common.ui.UserData;
-import kun.bdbd.common.ui.UserDataOF;
 import kun.module_mine.databinding.FragmentMineBinding;
 
 /**

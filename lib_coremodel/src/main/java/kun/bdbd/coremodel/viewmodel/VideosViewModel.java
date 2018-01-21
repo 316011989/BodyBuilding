@@ -10,7 +10,7 @@ import android.databinding.ObservableField;
 import android.support.annotation.NonNull;
 import android.util.Log;
 
-import kun.bdbd.coremodel.datamodel.http.entities.GirlsData;
+import kun.bdbd.coremodel.datamodel.http.entities.VideoData;
 import kun.bdbd.coremodel.datamodel.http.repository.GankDataRepository;
 import kun.bdbd.coremodel.util.NetUtils;
 import io.reactivex.Observer;
@@ -24,7 +24,7 @@ import io.reactivex.schedulers.Schedulers;
  * Created by dxx on 2017/11/10.
  */
 
-public class GirlsViewModel extends AndroidViewModel {
+public class VideosViewModel extends AndroidViewModel {
 
     private static final MutableLiveData ABSENT = new MutableLiveData();
     {
@@ -33,36 +33,36 @@ public class GirlsViewModel extends AndroidViewModel {
     }
 
     //生命周期观察的数据
-    private LiveData<GirlsData> mLiveObservableData;
+    private LiveData<VideoData> mLiveObservableData;
     //UI使用可观察的数据 ObservableField是一个包装类
-    public ObservableField<GirlsData> uiObservableData = new ObservableField<>();
+    public ObservableField<VideoData> uiObservableData = new ObservableField<>();
 
     private final CompositeDisposable mDisposable = new CompositeDisposable();
 
-    public GirlsViewModel(@NonNull Application application) {
+    public VideosViewModel(@NonNull Application application) {
         super(application);
-        Log.i("danxx", "GirlsViewModel------>");
+        Log.i("danxx", "VideosViewModel------>");
         //这里的trigger为网络检测，也可以换成缓存数据是否存在检测
-        mLiveObservableData = Transformations.switchMap(NetUtils.netConnected(application), new Function<Boolean, LiveData<GirlsData>>() {
+        mLiveObservableData = Transformations.switchMap(NetUtils.netConnected(application), new Function<Boolean, LiveData<VideoData>>() {
             @Override
-            public LiveData<GirlsData> apply(Boolean isNetConnected) {
+            public LiveData<VideoData> apply(Boolean isNetConnected) {
                 Log.i("danxx", "apply------>");
                 if (!isNetConnected) {
                     return ABSENT; //网络未连接返回空
                 }
-                MutableLiveData<GirlsData> applyData = new MutableLiveData<>();
+                MutableLiveData<VideoData> applyData = new MutableLiveData<>();
 
                 GankDataRepository.getFuliDataRepository("20", "1")
                 .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
-                        .subscribe(new Observer<GirlsData>() {
+                        .subscribe(new Observer<VideoData>() {
                             @Override
                             public void onSubscribe(Disposable d) {
                                     mDisposable.add(d);
                             }
 
                             @Override
-                            public void onNext(GirlsData value) {
+                            public void onNext(VideoData value) {
                                 Log.i("danxx", "setValue------>");
                                 applyData.setValue(value);
                             }
@@ -86,7 +86,7 @@ public class GirlsViewModel extends AndroidViewModel {
      * LiveData支持了lifecycle生命周期检测
      * @return
      */
-    public LiveData<GirlsData> getLiveObservableData() {
+    public LiveData<VideoData> getLiveObservableData() {
         return mLiveObservableData;
     }
 
@@ -94,7 +94,7 @@ public class GirlsViewModel extends AndroidViewModel {
      * 设置
      * @param product
      */
-    public void setUiObservableData(GirlsData product) {
+    public void setUiObservableData(VideoData product) {
         this.uiObservableData.set(product);
     }
 

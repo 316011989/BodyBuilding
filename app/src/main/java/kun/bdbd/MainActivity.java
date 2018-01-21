@@ -1,10 +1,14 @@
 package kun.bdbd;
 
 import android.databinding.DataBindingUtil;
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.view.MenuItem;
+import android.view.Window;
+import android.view.WindowManager;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
@@ -54,8 +58,6 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mainBinding = DataBindingUtil.setContentView(MainActivity.this, R.layout.activity_main);
-        mainBinding.toolbar.setNavigationIcon(R.mipmap.ic_launcher);
-        mainBinding.mainTitle.setText(getApplication().getPackageName());
         mainBinding.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener);
         mPager = mainBinding.containerPager;
         mPager.setOffscreenPageLimit(3);
