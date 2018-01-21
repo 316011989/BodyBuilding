@@ -1,22 +1,19 @@
 package kun.module_mine;
 
+import android.app.Activity;
 import android.databinding.DataBindingUtil;
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.alibaba.android.arouter.launcher.ARouter;
-import com.apkfuns.logutils.LogUtils;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import kun.bdbd.common.base.ARouterPath;
 import kun.bdbd.common.base.BaseFragment;
-import kun.bdbd.common.ui.UserData;
-import kun.bdbd.common.ui.UserDataOF;
 import kun.module_mine.databinding.FragmentMineBinding;
 
 /**
@@ -36,8 +33,6 @@ public class MineFragment extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_mine, container, false);
-
-
         return binding.getRoot();
     }
 

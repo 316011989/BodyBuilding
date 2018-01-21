@@ -1,6 +1,5 @@
 package kun.bdbd.coremodel.datamodel.http.service;
 
-import kun.bdbd.coremodel.datamodel.http.Model;
 import io.reactivex.Observable;
 import okhttp3.ResponseBody;
 import retrofit2.http.GET;

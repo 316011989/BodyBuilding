@@ -7,21 +7,13 @@ import android.arch.lifecycle.MutableLiveData;
 import android.databinding.ObservableField;
 import android.support.annotation.NonNull;
 
-import java.io.IOException;
 import java.lang.reflect.ParameterizedType;
 
-import kun.bdbd.coremodel.datamodel.http.ApiClient;
-import kun.bdbd.coremodel.datamodel.http.ApiConstants;
-import kun.bdbd.coremodel.datamodel.http.repository.DynamicDataRepository;
-import kun.bdbd.coremodel.datamodel.http.service.DynamicApiService;
-import kun.bdbd.coremodel.util.JsonUtil;
-import kun.bdbd.coremodel.util.SwitchSchedulers;
 import io.reactivex.Observer;
-import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
-import io.reactivex.schedulers.Schedulers;
-import okhttp3.ResponseBody;
+import kun.bdbd.coremodel.datamodel.http.repository.DynamicDataRepository;
+import kun.bdbd.coremodel.util.SwitchSchedulers;
 
 /**
  * Created by dxx on 2017/11/20.

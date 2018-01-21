@@ -44,4 +44,9 @@ public class ARouterPath {
      * 发布Fragment
      */
     public static final String PublishFgt = "/publish/publishfragment";
+
+    /**
+     * 动态Fragment
+     */
+    public static final String DynamicFgt = "/dynamic/dynamicfragment";
 }

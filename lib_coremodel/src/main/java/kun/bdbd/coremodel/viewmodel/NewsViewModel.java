@@ -9,7 +9,6 @@ import android.databinding.ObservableField;
 import android.support.annotation.NonNull;
 import android.util.Log;
 
-import kun.bdbd.coremodel.datamodel.http.entities.GirlsData;
 import kun.bdbd.coremodel.datamodel.http.entities.NewsData;
 import kun.bdbd.coremodel.datamodel.http.repository.GankDataRepository;
 import kun.bdbd.coremodel.util.NetUtils;
@@ -17,7 +16,6 @@ import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
-import io.reactivex.functions.Function;
 import io.reactivex.schedulers.Schedulers;
 
 /**
@@ -41,7 +39,7 @@ public class NewsViewModel extends AndroidViewModel {
 
     public NewsViewModel(@NonNull Application application) {
         super(application);
-        Log.i("danxx", "GirlsViewModel------>");
+        Log.i("danxx", "VideosViewModel------>");
         //这里的trigger为网络检测，也可以换成缓存数据是否存在检测
         mLiveObservableData = Transformations.switchMap(NetUtils.netConnected(application), new android.arch.core.util.Function<Boolean, LiveData<NewsData>>() {
             @Override
