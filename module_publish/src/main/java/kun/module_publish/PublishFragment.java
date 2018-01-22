@@ -1,10 +1,16 @@
 package kun.module_publish;
 
+import android.arch.lifecycle.Observer;
 import android.databinding.DataBindingUtil;
+import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebChromeClient;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
@@ -17,6 +23,10 @@ import kun.bdbd.common.base.ARouterPath;
 import kun.bdbd.common.base.BaseFragment;
 import kun.bdbd.common.ui.UserData;
 import kun.bdbd.common.ui.UserDataOF;
+import kun.bdbd.coremodel.datamodel.http.entities.DynamicData;
+import kun.bdbd.coremodel.datamodel.http.entities.PublishData;
+import kun.bdbd.coremodel.viewmodel.DynamicViewModel;
+import kun.bdbd.coremodel.viewmodel.PublishViewModel;
 import kun.module_publish.databinding.FragmentPublishBinding;
 
 /**
@@ -36,8 +46,36 @@ public class PublishFragment extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_publish, container, false);
+
+        PublishViewModel viewModel = new PublishViewModel(getActivity().getApplication());
+        subscribeToModel(viewModel);
+
         return binding.getRoot();
     }
 
+    /**
+     * 订阅数据变化来刷新UI
+     *
+     * @param model
+     */
+    private void subscribeToModel(final PublishViewModel model) {
+        //观察数据变化来刷新UI
+        model.getLiveObservableData().observe(PublishFragment.this, new Observer<PublishData>() {
+            @Override
+            public void onChanged(@Nullable final PublishData publishData) {
+                LogUtils.e(publishData);
+                binding.publishWebview.loadUrl("https://m.ceair.com/pages/checkin/checklist.html?channel=wechat_fuwu");
+                binding.publishWebview.setWebViewClient(new WebViewClient() {
+                    @Override
+                    public void onPageStarted(WebView view, String url, Bitmap favicon) {
+                        binding.publishWebview.loadUrl("javaScript:setTemp('checkin_PhoneNo','18611124087')");
+                        binding.publishWebview.loadUrl("javaScript:setTemp('loadCheckList'," + publishData + ")");
+                        super.onPageStarted(view, url, favicon);
+                    }
+                });
+            }
+        });
+
+    }
 
 }

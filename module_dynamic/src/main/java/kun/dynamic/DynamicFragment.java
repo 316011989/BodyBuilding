@@ -2,9 +2,13 @@ package kun.dynamic;
 
 import android.arch.lifecycle.Observer;
 import android.databinding.DataBindingUtil;
+import android.databinding.InverseBindingMethod;
+import android.databinding.InverseBindingMethods;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.util.Log;
+import android.support.annotation.RequiresApi;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,6 +35,7 @@ public class DynamicFragment extends BaseFragment {
         super.onCreate(savedInstanceState);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.M)
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {

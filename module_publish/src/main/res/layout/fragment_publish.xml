@@ -1,6 +1,7 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="kun.module_publish.PublishFragment">
+
     <data>
 
 
@@ -8,10 +9,10 @@
 
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center">
+        android:gravity="center"
+        android:orientation="vertical">
 
         <TextView
             android:layout_width="wrap_content"
@@ -19,6 +20,10 @@
             android:text="@string/about_fragment"
             android:textSize="@dimen/text_size_20sp" />
 
+        <WebView
+            android:id="@+id/publish_webview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
 
     </LinearLayout>

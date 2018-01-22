@@ -1,4 +1,4 @@
-package com.kun.module_publish;
+package com.kun.module_mine;
 
 import kun.bdbd.common.base.BaseFragment;
 
@@ -6,5 +6,5 @@ import kun.bdbd.common.base.BaseFragment;
  * Created by HOME_PC on 2018/1/20.
  */
 
-public class PulishFragment extends BaseFragment {
+public class MineFragment extends BaseFragment {
 }

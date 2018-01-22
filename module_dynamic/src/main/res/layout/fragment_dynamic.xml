@@ -4,8 +4,6 @@
 
     <data>
 
-        <import type="android.view.View" />
-
         <variable
             name="dynamicViewModel"
             type="kun.bdbd.coremodel.viewmodel.DynamicViewModel" />
@@ -21,16 +19,22 @@
         android:background="@color/common_bg"
         android:orientation="vertical">
 
-
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/dynamic_list"
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/dynamic_refreshview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:contentDescription="dynamic list"
-            android:orientation="vertical"
-            app:adapter="@{recyclerAdapter}"
-            app:layoutManager="StaggeredGridLayoutManager"
-            app:spanCount="2" />
+            app:onRefreshListener="@{dynamicViewModel.onRefreshListener}">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/dynamic_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="dynamic list"
+                android:orientation="vertical"
+                app:adapter="@{recyclerAdapter}"
+                app:layoutManager="StaggeredGridLayoutManager"
+                app:spanCount="2" />
+        </android.support.v4.widget.SwipeRefreshLayout>
 
     </LinearLayout>
 

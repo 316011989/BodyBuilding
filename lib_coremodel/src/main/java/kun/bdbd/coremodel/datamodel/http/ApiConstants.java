@@ -7,5 +7,6 @@ package kun.bdbd.coremodel.datamodel.http;
 public class ApiConstants {
 
     public static final String GankHost = "http://gank.io/";
+    public static final String PublishHost = "https://m.ceair.com";
 
 }
