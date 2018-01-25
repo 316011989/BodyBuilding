@@ -4,6 +4,8 @@
 
     <data>
 
+        <import type="android.view.View" />
+
         <variable
             name="dynamicViewModel"
             type="kun.bdbd.coremodel.viewmodel.DynamicViewModel" />
@@ -23,7 +25,8 @@
             android:id="@+id/dynamic_refreshview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:onRefreshListener="@{dynamicViewModel.onRefreshListener}">
+            app:isrefreshing="@={dynamicViewModel.refreshing}"
+            app:onrefresh="@{dynamicViewModel.setOnRefreshListener}">
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/dynamic_list"

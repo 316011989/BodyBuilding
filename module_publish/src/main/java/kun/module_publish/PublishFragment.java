@@ -64,15 +64,6 @@ public class PublishFragment extends BaseFragment {
             @Override
             public void onChanged(@Nullable final PublishData publishData) {
                 LogUtils.e(publishData);
-                binding.publishWebview.loadUrl("https://m.ceair.com/pages/checkin/checklist.html?channel=wechat_fuwu");
-                binding.publishWebview.setWebViewClient(new WebViewClient() {
-                    @Override
-                    public void onPageStarted(WebView view, String url, Bitmap favicon) {
-                        binding.publishWebview.loadUrl("javaScript:setTemp('checkin_PhoneNo','18611124087')");
-                        binding.publishWebview.loadUrl("javaScript:setTemp('loadCheckList'," + publishData + ")");
-                        super.onPageStarted(view, url, favicon);
-                    }
-                });
             }
         });
 
