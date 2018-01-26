@@ -124,6 +124,7 @@ public class DynamicViewModel extends AndroidViewModel {
         return new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
+                LogUtils.e("onRefresh执行");
                 LoadData("20", "5");
             }
         };
