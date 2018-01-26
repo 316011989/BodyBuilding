@@ -5,6 +5,7 @@
 /.idea/libraries
 /.idea/misc.xml
 /.idea/modules.
+/.idea
 .DS_Store
 /build
 /captures

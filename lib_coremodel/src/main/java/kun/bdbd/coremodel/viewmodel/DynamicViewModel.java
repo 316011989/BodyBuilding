@@ -45,7 +45,6 @@ public class DynamicViewModel extends AndroidViewModel {
     private LiveData<DynamicData> mLiveObservableData;
     //UI使用可观察的数据 ObservableField是一个包装类
     public ObservableField<DynamicData> uiObservableData = new ObservableField<>();
-    public ObservableBoolean refreshing = new ObservableBoolean();
 
     private final CompositeDisposable mDisposable = new CompositeDisposable();
 
@@ -69,7 +68,6 @@ public class DynamicViewModel extends AndroidViewModel {
                 if (!isNetConnected) {
                     return ABSENT; //网络未连接返回空
                 }
-                refreshing.set(true);
                 MutableLiveData<DynamicData> applyData = new MutableLiveData<>();
 
                 GankDataRepository.getDynamicDataRepository(size, index)
@@ -83,22 +81,19 @@ public class DynamicViewModel extends AndroidViewModel {
 
                             @Override
                             public void onNext(DynamicData value) {
-                                Log.i("zhangyl", "setValue------>");
+                                LogUtils.i("zhangyl", "setValue------>");
                                 applyData.setValue(value);
-                                refreshing.set(false);
                             }
 
                             @Override
                             public void onError(Throwable e) {
-                                Log.i("zhangyl", "onError------>");
+                                LogUtils.i("zhangyl", "onError------>");
                                 e.printStackTrace();
-                                refreshing.set(false);
                             }
 
                             @Override
                             public void onComplete() {
-                                Log.i("danxx", "onComplete------>");
-                                refreshing.set(false);
+                                LogUtils.e("zhangyl", "onComplete------>");
                             }
                         });
                 return applyData;
@@ -106,28 +101,39 @@ public class DynamicViewModel extends AndroidViewModel {
         });
     }
 
-    @BindingAdapter("isrefreshing")
-    public static void setRefreshing(SwipeRefreshLayout layout, boolean isRefreshing) {
-        if (isRefreshing != layout.isRefreshing()) {
-            layout.setRefreshing(isRefreshing);
+    //http://blog.csdn.net/YoYo_Newbie/article/details/51959154
+    public SwipeRefreshLayout.OnRefreshListener onRefreshListener = new SwipeRefreshLayout.OnRefreshListener() {
+        @Override
+        public void onRefresh() {
+            LogUtils.e("onRefreshListener执行");
+            LoadData("20", "5");
         }
-    }
+    };
 
-    @BindingAdapter("onrefresh")
-    public static void onRefreshListener(SwipeRefreshLayout layout, SwipeRefreshLayout.OnRefreshListener listener) {
-        LogUtils.e("onRefreshListener方法");
-        layout.setOnRefreshListener(listener);
-    }
+    //    @BindingAdapter("isrefreshing")
+//    public static void setRefreshing(SwipeRefreshLayout layout, boolean isRefreshing) {
+//        LogUtils.e("isrefreshing方法");
+//        if (isRefreshing != layout.isRefreshing()) {
+//            layout.setRefreshing(isRefreshing);
+//        }
+//    }
+//
+//    @BindingAdapter("onrefresh")
+//    public static void setOnRefreshListener(SwipeRefreshLayout layout, SwipeRefreshLayout.OnRefreshListener listener) {
+//        LogUtils.e("onRefreshListener方法");
+//        layout.setOnRefreshListener(listener);
+//    }
+//
 
-
-    public SwipeRefreshLayout.OnRefreshListener setOnRefreshListener() {
-        return new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                LoadData("20", "5");
-            }
-        };
-    }
+//    public SwipeRefreshLayout.OnRefreshListener setOnRefreshListener() {
+//        return new SwipeRefreshLayout.OnRefreshListener() {
+//            @Override
+//            public void onRefresh() {
+//                LogUtils.e("onRefresh执行");
+//                LoadData("20", "5");
+//            }
+//        };
+//    }
 
 
     /**

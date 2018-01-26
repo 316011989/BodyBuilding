@@ -2,8 +2,6 @@ package kun.dynamic;
 
 import android.arch.lifecycle.Observer;
 import android.databinding.DataBindingUtil;
-import android.databinding.InverseBindingMethod;
-import android.databinding.InverseBindingMethods;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;

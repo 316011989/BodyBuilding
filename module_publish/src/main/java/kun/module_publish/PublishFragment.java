@@ -63,7 +63,7 @@ public class PublishFragment extends BaseFragment {
         model.getLiveObservableData().observe(PublishFragment.this, new Observer<PublishData>() {
             @Override
             public void onChanged(@Nullable final PublishData publishData) {
-                LogUtils.e(publishData);
+
             }
         });
 
