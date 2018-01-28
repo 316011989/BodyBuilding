@@ -35,7 +35,7 @@ public class GankDataRepository {
     }
 
 
-    public static Observable<DynamicData> getDynamicDataRepository(String size, String index) {
+    public static Observable<DynamicData> getDynamicDataRepository(int size, int index) {
 
         Observable<DynamicData> observableForGetAndroidDataFromNetWork = ApiClient.getGankDataService().getDynamicData(size, index);
 

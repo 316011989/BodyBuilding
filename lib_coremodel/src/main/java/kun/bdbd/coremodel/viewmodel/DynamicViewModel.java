@@ -6,14 +6,10 @@ import android.arch.lifecycle.AndroidViewModel;
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.Transformations;
-import android.databinding.BindingAdapter;
-import android.databinding.InverseBindingAdapter;
-import android.databinding.InverseBindingListener;
 import android.databinding.ObservableBoolean;
 import android.databinding.ObservableField;
 import android.support.annotation.NonNull;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.util.Log;
 import android.widget.Toast;
 
 import com.apkfuns.logutils.LogUtils;
@@ -41,64 +37,70 @@ public class DynamicViewModel extends AndroidViewModel {
         ABSENT.setValue(null);
     }
 
-    //生命周期观察的数据
+    //生命周期观察的数据，可使uiObservableData变更
     private LiveData<DynamicData> mLiveObservableData;
-    //UI使用可观察的数据 ObservableField是一个包装类
+    //UI使用可观察的数据 ObservableField是一个包装类，可使UI变更
     public ObservableField<DynamicData> uiObservableData = new ObservableField<>();
-
+    //后台调度，可关闭
     private final CompositeDisposable mDisposable = new CompositeDisposable();
-
+    //动态数据，请求获取，可使mLiveObservableData变更
+    private MutableLiveData<DynamicData> applyData = new MutableLiveData<>();
+    //动态boolean值，根据接口进度变化
+    public ObservableBoolean isRefreshing = new ObservableBoolean();
+    private int count = 20;
+    private int index = 1;
 
     public DynamicViewModel(@NonNull Application application) {
         super(application);
         this.application = application;
-        LoadData("20", "1");
+        mLiveObservableData = Transformations.switchMap(NetUtils.netConnected(application), new Function<Boolean, LiveData<DynamicData>>() {
+            @Override
+            public LiveData<DynamicData> apply(Boolean isNetConnected) {
+                if (!isNetConnected) {
+                    Toast.makeText(application, "网络异常", Toast.LENGTH_SHORT).show();
+                    return ABSENT;
+                }
+                LoadData();
+                return applyData;
+            }
+        });
     }
 
 
     /**
-     *
+     * 请求数据接口
      */
-    private void LoadData(String size, String index) {
-        //这里的trigger为网络检测，也可以换成缓存数据是否存在检测
-        mLiveObservableData = Transformations.switchMap(NetUtils.netConnected(application), new Function<Boolean, LiveData<DynamicData>>() {
-            @Override
-            public LiveData<DynamicData> apply(Boolean isNetConnected) {
-                Log.i("zhangyl", "apply------>");
-                if (!isNetConnected) {
-                    return ABSENT; //网络未连接返回空
-                }
-                MutableLiveData<DynamicData> applyData = new MutableLiveData<>();
+    private void LoadData() {
+        isRefreshing.set(true);
+        GankDataRepository.getDynamicDataRepository(count, index)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<DynamicData>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+                        mDisposable.add(d);
+                    }
 
-                GankDataRepository.getDynamicDataRepository(size, index)
-                        .subscribeOn(Schedulers.io())
-                        .observeOn(AndroidSchedulers.mainThread())
-                        .subscribe(new Observer<DynamicData>() {
-                            @Override
-                            public void onSubscribe(Disposable d) {
-                                mDisposable.add(d);
-                            }
+                    @Override
+                    public void onNext(DynamicData value) {
+                        LogUtils.e(value);
+                        applyData.setValue(value);
+                    }
 
-                            @Override
-                            public void onNext(DynamicData value) {
-                                LogUtils.i("zhangyl", "setValue------>");
-                                applyData.setValue(value);
-                            }
+                    @Override
+                    public void onError(Throwable e) {
+                        LogUtils.e(e);
+                        isRefreshing.set(false);
+                        e.printStackTrace();
+                    }
 
-                            @Override
-                            public void onError(Throwable e) {
-                                LogUtils.i("zhangyl", "onError------>");
-                                e.printStackTrace();
-                            }
-
-                            @Override
-                            public void onComplete() {
-                                LogUtils.e("zhangyl", "onComplete------>");
-                            }
-                        });
-                return applyData;
-            }
-        });
+                    @Override
+                    public void onComplete() {
+                        LogUtils.e("onComplete");
+                        index++;
+                        isRefreshing.set(false);
+                    }
+                });
     }
 
     //http://blog.csdn.net/YoYo_Newbie/article/details/51959154
@@ -106,34 +108,9 @@ public class DynamicViewModel extends AndroidViewModel {
         @Override
         public void onRefresh() {
             LogUtils.e("onRefreshListener执行");
-            LoadData("20", "5");
+            LoadData();
         }
     };
-
-    //    @BindingAdapter("isrefreshing")
-//    public static void setRefreshing(SwipeRefreshLayout layout, boolean isRefreshing) {
-//        LogUtils.e("isrefreshing方法");
-//        if (isRefreshing != layout.isRefreshing()) {
-//            layout.setRefreshing(isRefreshing);
-//        }
-//    }
-//
-//    @BindingAdapter("onrefresh")
-//    public static void setOnRefreshListener(SwipeRefreshLayout layout, SwipeRefreshLayout.OnRefreshListener listener) {
-//        LogUtils.e("onRefreshListener方法");
-//        layout.setOnRefreshListener(listener);
-//    }
-//
-
-//    public SwipeRefreshLayout.OnRefreshListener setOnRefreshListener() {
-//        return new SwipeRefreshLayout.OnRefreshListener() {
-//            @Override
-//            public void onRefresh() {
-//                LogUtils.e("onRefresh执行");
-//                LoadData("20", "5");
-//            }
-//        };
-//    }
 
 
     /**

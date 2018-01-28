@@ -28,6 +28,6 @@ public interface GankDataService {
      * @return
      */
     @GET("api/data/福利/{size}/{index}")
-    Observable<DynamicData> getDynamicData(@Path("size") String size, @Path("index") String index);
+    Observable<DynamicData> getDynamicData(@Path("size") int size, @Path("index") int index);
 
 }

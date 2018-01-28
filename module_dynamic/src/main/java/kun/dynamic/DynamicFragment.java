@@ -40,8 +40,9 @@ public class DynamicFragment extends BaseFragment {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_dynamic, container, false);
         adapter = new DynamicAdapter(callback);
         binding.setRecyclerAdapter(adapter);
-        final DynamicViewModel dynamicViewModel = new DynamicViewModel(getActivity().getApplication());
+        DynamicViewModel dynamicViewModel = new DynamicViewModel(getActivity().getApplication());
         subscribeToModel(dynamicViewModel);
+        binding.setDynamicViewModel(dynamicViewModel);
         return binding.getRoot();
     }
 

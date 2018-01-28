@@ -25,7 +25,8 @@
             android:id="@+id/dynamic_refreshview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:onRefreshListener="@{dynamicViewModel.onRefreshListener }">
+            app:onRefreshListener="@{dynamicViewModel.onRefreshListener}"
+            app:refreshing="@{dynamicViewModel.isRefreshing}">
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/dynamic_list"
