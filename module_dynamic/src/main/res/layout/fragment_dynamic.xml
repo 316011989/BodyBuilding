@@ -36,7 +36,7 @@
                 android:orientation="vertical"
                 app:adapter="@{recyclerAdapter}"
                 app:layoutManager="StaggeredGridLayoutManager"
-                app:spanCount="2" />
+                app:spanCount="1" />
         </android.support.v4.widget.SwipeRefreshLayout>
 
     </LinearLayout>

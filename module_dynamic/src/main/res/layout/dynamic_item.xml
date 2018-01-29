@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:bind="http://schemas.android.com/apk/res-auto"
     xmlns:fresco="http://schemas.android.com/apk/res-auto">
 
@@ -16,31 +17,157 @@
             type="kun.dynamic.DynamicItemClickCallback" />
     </data>
 
-    <FrameLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/size_4dp"
-        android:layout_marginRight="@dimen/size_4dp"
-        android:layout_marginTop="@dimen/size_4dp"
+        android:background="@color/white"
         android:minHeight="@dimen/size_180dp"
-        android:onClick="@{() ->  callback.onClick(dynamicItem)}">
+        android:onClick="@{() ->  callback.onClick(dynamicItem)}"
+        android:orientation="vertical">
 
-        <com.facebook.drawee.view.SimpleDraweeView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:adjustViewBounds="true"
-            bind:image="@{dynamicItem.url}"
-            fresco:actualImageScaleType="centerCrop" />
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/size_15dp">
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:layout_width="@dimen/size_35dp"
+                android:layout_height="@dimen/size_35dp"
+                android:layout_marginBottom="@dimen/size_10dp"
+                android:layout_marginTop="@dimen/size_10dp"
+                app:actualImageScaleType="centerCrop"
+                app:placeholderImage="@drawable/shape_loading_bg"
+                app:placeholderImageScaleType="centerCrop"
+                app:roundAsCircle="true"
+                app:roundingBorderWidth="0dp"
+                bind:image="@{dynamicItem.url}" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/size_10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{dynamicItem.createdAt}"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{dynamicItem.source}"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_12sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/size_15dp"
+            android:text="@{dynamicItem.desc}"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_16sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/size_15dp"
+            android:paddingTop="@dimen/size_10dp">
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:layout_width="@dimen/size_100dp"
+                android:layout_height="@dimen/size_100dp"
+                bind:image="@{dynamicItem.url}" />
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:layout_width="@dimen/size_100dp"
+                android:layout_height="@dimen/size_100dp"
+                android:layout_marginLeft="@dimen/size_10dp"
+                bind:image="@{dynamicItem.url}" />
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:layout_width="@dimen/size_100dp"
+                android:layout_height="@dimen/size_100dp"
+                android:layout_marginLeft="@dimen/size_10dp"
+                bind:image="@{dynamicItem.url}" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="@dimen/size_10dp"
+            android:paddingLeft="@dimen/size_15dp"
+            android:paddingTop="@dimen/size_10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{dynamicItem.publishedAt}"
+                android:textColor="@color/gray_88"
+                android:textSize="@dimen/text_size_12sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/size_10dp"
+                android:text="@{dynamicItem.source}"
+                android:textColor="@color/gray_88"
+                android:textSize="@dimen/text_size_12sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/size_10dp"
+                android:text="@{dynamicItem.type}"
+                android:textColor="@color/gray_88"
+                android:textSize="@dimen/text_size_12sp" />
+        </LinearLayout>
 
         <TextView
             android:layout_width="match_parent"
+            android:layout_height="@dimen/size_0.5dp"
+            android:layout_marginLeft="@dimen/size_15dp"
+            android:layout_marginRight="@dimen/size_15dp"
+            android:background="@color/divider_color" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:background="#66000000"
-            android:gravity="center"
-            android:padding="@dimen/size_4dp"
-            android:text="@{dynamicItem.who}"
-            android:textColor="#FFFFFF"
-            android:textSize="@dimen/text_size_20sp" />
-    </FrameLayout>
+            android:orientation="horizontal"
+            android:paddingBottom="@dimen/size_10dp"
+            android:paddingLeft="@dimen/size_15dp"
+            android:paddingTop="@dimen/size_10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_arrow_back"
+                android:drawablePadding="@dimen/size_10dp"
+                android:gravity="center_vertical"
+                android:text="523"
+                android:textColor="@color/gray_88" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/size_30dp"
+                android:drawableLeft="@drawable/ic_arrow_back"
+                android:drawablePadding="@dimen/size_10dp"
+                android:gravity="center_vertical"
+                android:text="351"
+                android:textColor="@color/gray_88" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_10dp"
+            android:background="@color/common_bg" />
+    </LinearLayout>
 </layout>
