@@ -1,2 +1,2 @@
-include ':app', ':lib_common', ':lib_coremodel',':lib_opensource', ':module_login', ':module_mine', ':module_publish', ':module_dynamic'
+include ':app', ':lib_common', ':lib_coremodel',':lib_opensource', ':module_login', ':module_mine', ':module_publish', ':module_dynamic', ':module_message'
 

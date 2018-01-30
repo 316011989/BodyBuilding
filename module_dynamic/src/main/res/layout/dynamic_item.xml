@@ -37,7 +37,7 @@
                 android:layout_marginBottom="@dimen/size_10dp"
                 android:layout_marginTop="@dimen/size_10dp"
                 app:actualImageScaleType="centerCrop"
-                app:placeholderImage="@drawable/shape_loading_bg"
+                app:placeholderImage="@mipmap/ic_launcher_round"
                 app:placeholderImageScaleType="centerCrop"
                 app:roundAsCircle="true"
                 app:roundingBorderWidth="0dp"
@@ -83,18 +83,21 @@
             <com.facebook.drawee.view.SimpleDraweeView
                 android:layout_width="@dimen/size_100dp"
                 android:layout_height="@dimen/size_100dp"
+                app:placeholderImage="@mipmap/ic_launcher"
                 bind:image="@{dynamicItem.url}" />
 
             <com.facebook.drawee.view.SimpleDraweeView
                 android:layout_width="@dimen/size_100dp"
                 android:layout_height="@dimen/size_100dp"
                 android:layout_marginLeft="@dimen/size_10dp"
+                app:placeholderImage="@mipmap/ic_launcher"
                 bind:image="@{dynamicItem.url}" />
 
             <com.facebook.drawee.view.SimpleDraweeView
                 android:layout_width="@dimen/size_100dp"
                 android:layout_height="@dimen/size_100dp"
                 android:layout_marginLeft="@dimen/size_10dp"
+                app:placeholderImage="@mipmap/ic_launcher"
                 bind:image="@{dynamicItem.url}" />
         </LinearLayout>
 

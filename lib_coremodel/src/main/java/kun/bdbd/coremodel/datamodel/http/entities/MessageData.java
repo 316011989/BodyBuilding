@@ -1,12 +1,15 @@
 package kun.bdbd.coremodel.datamodel.http.entities;
 
+/**
+ * Created by HOME_PC on 2018/1/31.
+ */
+
 import java.util.List;
 
 /**
- * Created by dxx on 2017/11/8.
+ * 消息实体类
  */
-
-public class VideoData {
+public class MessageData {
 
     private boolean error;
     private List<ResultsBean> results;

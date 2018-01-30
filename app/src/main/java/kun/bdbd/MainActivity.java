@@ -1,17 +1,10 @@
 package kun.bdbd;
 
 import android.databinding.DataBindingUtil;
-import android.graphics.Color;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
-import android.support.v4.view.ViewCompat;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.Window;
-import android.view.WindowManager;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
@@ -42,14 +35,17 @@ public class MainActivity extends BaseActivity {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             int i = item.getItemId();
-            if (i == R.id.navigation_home) {
+            if (i == R.id.navigation_dynamic) {
                 mPager.setCurrentItem(0);
                 return true;
-            } else if (i == R.id.navigation_dashboard) {
-                mPager.setCurrentItem(1);
-                return true;
-            } else if (i == R.id.navigation_notifications) {
+            } else if (i == R.id.navigation_about) {
                 mPager.setCurrentItem(2);
+                return true;
+            } else if (i == R.id.navigation_mine) {
+                mPager.setCurrentItem(3);
+                return true;
+            } else if (i == R.id.navigation_message) {
+                mPager.setCurrentItem(1);
                 return true;
             }
             return false;
@@ -65,13 +61,15 @@ public class MainActivity extends BaseActivity {
         mPager = mainBinding.containerPager;
         mPager.setOffscreenPageLimit(3);
 
-        BaseFragment fragmentNews = (BaseFragment) ARouter.getInstance().build(ARouterPath.DynamicFgt).navigation();
-        BaseFragment fragmentGirls = (BaseFragment) ARouter.getInstance().build(ARouterPath.PublishFgt).navigation();
-        BaseFragment fragmentAbout = (BaseFragment) ARouter.getInstance().build(ARouterPath.MineFgt).navigation();
+        BaseFragment fragmentDynamic = (BaseFragment) ARouter.getInstance().build(ARouterPath.DynamicFgt).navigation();
+        BaseFragment fragmentMessage = (BaseFragment) ARouter.getInstance().build(ARouterPath.MessageFgt).navigation();
+        BaseFragment fragmentAbout = (BaseFragment) ARouter.getInstance().build(ARouterPath.AboutFgt).navigation();
+        BaseFragment fragmentMine = (BaseFragment) ARouter.getInstance().build(ARouterPath.MineFgt).navigation();
 
-        mFragments.add(fragmentNews);
-        mFragments.add(fragmentGirls);
+        mFragments.add(fragmentDynamic);
+        mFragments.add(fragmentMessage);
         mFragments.add(fragmentAbout);
+        mFragments.add(fragmentMine);
 
         mAdapter = new FragmentAdapter(getSupportFragmentManager(), mFragments);
         mainBinding.setViewPaAdapter(mAdapter);
