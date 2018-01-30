@@ -1,17 +1,21 @@
-apply plugin: 'com.android.application'
+if (isModule.toBoolean()) {
+    apply plugin: 'com.android.application'
+} else {
+    apply plugin: 'com.android.library'
+}
 
 android {
     compileSdkVersion build_versions.target_sdk
     buildToolsVersion build_versions.build_tools
 
     defaultConfig {
-        applicationId "kun.bdbd"
         minSdkVersion build_versions.min_sdk
         targetSdkVersion build_versions.target_sdk
         versionCode 1
         versionName "1.0"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
         //ARouter
         javaCompileOptions {
             annotationProcessorOptions {
@@ -32,20 +36,27 @@ android {
     lintOptions {
         abortOnError false
     }
+//    sourceSets {
+//        main {
+//            if (isModule.toBoolean()) {
+//                Manifest.srcFile 'src/main/module/AndroidManifest.xml'
+//            } else {
+//                Manifest.srcFile 'src/main/AndroidManifest.xml'
+//                //集成开发模式下排除debug文件夹中的所有Java文件
+//                java {
+//                    exclude 'debug/**'
+//                }
+//            }
+//        }
+//    }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    if (isModule.toBoolean()) {
-        implementation project(':lib_common')
-        implementation project(':lib_coremodel')
-    } else {
-        implementation project(':module_login')
-        implementation project(':module_mine')
-        implementation project(':module_publish')
-        implementation project(':module_dynamic')
-        implementation project(':module_message')
-    }
+    api project(':lib_coremodel')
+    api project(':lib_common')
+    implementation 'com.android.support:support-v4:26.1.0'
     annotationProcessor deps.arouter.compiler
+    compile project(path: ':lib_common')
 }

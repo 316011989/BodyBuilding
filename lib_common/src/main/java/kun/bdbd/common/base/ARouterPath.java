@@ -49,4 +49,9 @@ public class ARouterPath {
      * 动态Fragment
      */
     public static final String DynamicFgt = "/dynamic/dynamicfragment";
+
+    /**
+     * 消息Fragment
+     */
+    public static final String MessageFgt = "/message/messageFragment";
 }

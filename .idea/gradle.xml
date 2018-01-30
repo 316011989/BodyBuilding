@@ -14,6 +14,7 @@
             <option value="$PROJECT_DIR$/lib_opensource" />
             <option value="$PROJECT_DIR$/module_dynamic" />
             <option value="$PROJECT_DIR$/module_login" />
+            <option value="$PROJECT_DIR$/module_message" />
             <option value="$PROJECT_DIR$/module_mine" />
             <option value="$PROJECT_DIR$/module_publish" />
           </set>

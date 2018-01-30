@@ -8,7 +8,6 @@ import kun.bdbd.coremodel.datamodel.http.ApiClient;
 import kun.bdbd.coremodel.datamodel.http.entities.DynamicData;
 import kun.bdbd.coremodel.datamodel.http.entities.NewsData;
 import kun.bdbd.coremodel.datamodel.http.entities.PublishData;
-import kun.bdbd.coremodel.datamodel.http.entities.VideoData;
 
 /**
  * Created by dxx on 2017/11/8.
@@ -16,14 +15,6 @@ import kun.bdbd.coremodel.datamodel.http.entities.VideoData;
 
 public class GankDataRepository {
 
-    public static Observable<VideoData> getFuliDataRepository(String size, String index) {
-
-        Observable<VideoData> observableForGetFuliDataFromNetWork = ApiClient.getGankDataService().getFuliData(size, index);
-
-        //可以操作Observable来筛选网络或者是本地数据
-
-        return observableForGetFuliDataFromNetWork;
-    }
 
     public static Observable<NewsData> getNewsDataRepository(String size, String index) {
 
