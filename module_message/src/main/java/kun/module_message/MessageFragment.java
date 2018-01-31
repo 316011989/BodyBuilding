@@ -1,5 +1,6 @@
 package kun.module_message;
 
+import android.arch.lifecycle.Observer;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -14,6 +15,7 @@ import com.kun.module_message.databinding.FragmentMessageBinding;
 import kun.bdbd.common.base.ARouterPath;
 import kun.bdbd.common.base.BaseFragment;
 import kun.bdbd.coremodel.datamodel.http.entities.MessageData;
+import kun.bdbd.coremodel.viewmodel.MessageViewModel;
 
 /**
  * Created by HOME_PC on 2018/1/31.
@@ -34,6 +36,8 @@ public class MessageFragment extends BaseFragment {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_message, container, false);
         adapter = new MessageAdapter(callback);
         binding.setRecycleAdapter(adapter);
+        MessageViewModel viewModel = new MessageViewModel(getActivity().getApplication());
+        subscribeToModel(viewModel);
         return binding.getRoot();
     }
 
@@ -43,4 +47,20 @@ public class MessageFragment extends BaseFragment {
 
         }
     };
+
+    /**
+     * 订阅数据变化来刷新UI
+     *
+     * @param model
+     */
+    private void subscribeToModel(final MessageViewModel model) {
+        //观察数据变化来刷新UI
+        model.getLiveObservableData().observe(MessageFragment.this, new Observer<MessageData>() {
+            @Override
+            public void onChanged(@Nullable MessageData messageData) {
+                model.setUiObservableData(messageData);
+                adapter.seMessageList(messageData.getResults());
+            }
+        });
+    }
 }

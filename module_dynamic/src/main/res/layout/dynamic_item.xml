@@ -133,7 +133,7 @@
                 android:textSize="@dimen/text_size_12sp" />
         </LinearLayout>
 
-        <TextView
+        <View
             android:layout_width="match_parent"
             android:layout_height="@dimen/size_0.5dp"
             android:layout_marginLeft="@dimen/size_15dp"

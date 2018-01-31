@@ -14,12 +14,39 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingTop="@dimen/size_25dp">
 
-        <android.support.design.widget.TabLayout
-            android:id="@+id/message_tab"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:background="@color/white" />
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@string/app_name" />
+
+            <Button
+                android:layout_width="@dimen/size_40dp"
+                android:layout_height="@dimen/size_40dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/size_15dp"
+                android:background="@mipmap/ic_launcher" />
+        </RelativeLayout>
+
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/message_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="message list"
+            android:orientation="vertical"
+            app:adapter="@{recycleAdapter}"
+
+            app:layoutManager="StaggeredGridLayoutManager"
+            app:spanCount="1" />
     </LinearLayout>
 </layout>

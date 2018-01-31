@@ -15,9 +15,6 @@
             name="viewPaAdapter"
             type="android.support.v4.app.FragmentStatePagerAdapter" />
 
-        <variable
-            name="navigationviewHelper"
-            type="kun.bdbd.BottomNavigationViewHelper" />
 
     </data>
 
@@ -42,7 +39,6 @@
             android:layout_gravity="bottom"
             android:background="@color/c"
             app:menu="@menu/navigation"
-            app:shiftMode="@{navigationviewHelper.disableShiftMode}"
             bind:onNavigationItemSelectedListener="@{onNavigationItemSelectedListener}" />
 
     </LinearLayout>

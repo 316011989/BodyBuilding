@@ -58,6 +58,7 @@ public class MainActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         mainBinding = DataBindingUtil.setContentView(MainActivity.this, R.layout.activity_main);
         mainBinding.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener);
+        BottomNavigationViewHelper.disableShiftMode(mainBinding.navigation);
         mPager = mainBinding.containerPager;
         mPager.setOffscreenPageLimit(3);
 

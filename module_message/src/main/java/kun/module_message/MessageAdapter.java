@@ -26,7 +26,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
         this.callback = callback;
     }
 
-    public void setDynamicList(final List<MessageData.ResultsBean> list) {
+    public void seMessageList(final List<MessageData.ResultsBean> list) {
         if (messagelist == null) {
             messagelist = list;
             notifyItemRangeInserted(0, messagelist.size());
