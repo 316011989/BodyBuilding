@@ -19,9 +19,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/common_bg"
-        android:fitsSystemWindows="true"
-        android:orientation="vertical"
-        android:paddingTop="@dimen/size_25dp">
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -31,8 +29,8 @@
             android:orientation="horizontal"
             android:paddingBottom="@dimen/size_10dp"
             android:paddingLeft="@dimen/size_10dp"
-            android:paddingRight="@dimen/size_10dp"
-            android:paddingTop="@dimen/size_25dp">
+            android:paddingTop="@dimen/size_30dp"
+            android:paddingRight="@dimen/size_10dp">
 
             <android.support.v7.widget.SearchView
                 android:layout_width="0dp"

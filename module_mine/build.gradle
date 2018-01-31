@@ -36,19 +36,19 @@ android {
     lintOptions {
         abortOnError false
     }
-//    sourceSets {
-//        main {
-//            if (isModule.toBoolean()) {
-//                Manifest.srcFile 'src/main/module/AndroidManifest.xml'
-//            } else {
-//                Manifest.srcFile 'src/main/AndroidManifest.xml'
-//                //集成开发模式下排除debug文件夹中的所有Java文件
-//                java {
-//                    exclude 'debug/**'
-//                }
-//            }
-//        }
-//    }
+    sourceSets {
+        main {
+            if (isModule.toBoolean()) {
+                manifest.srcFile 'src/main/module/AndroidManifest.xml'
+            } else {
+                manifest.srcFile 'src/main/AndroidManifest.xml'
+                //集成开发模式下排除debug文件夹中的所有Java文件
+                java {
+                    exclude 'debug/**'
+                }
+            }
+        }
+    }
 }
 
 dependencies {
