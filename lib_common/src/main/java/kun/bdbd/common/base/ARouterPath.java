@@ -54,4 +54,10 @@ public class ARouterPath {
      * 消息Fragment
      */
     public static final String MessageFgt = "/message/messageFragment";
+    /**
+     * 消息Fragment
+     */
+    public static final String ContactsFgt = "/message/ContactsFragment";
+
+
 }
