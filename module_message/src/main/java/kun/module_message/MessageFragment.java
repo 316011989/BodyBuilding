@@ -9,12 +9,15 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.kun.module_message.R;
 import com.kun.module_message.databinding.FragmentMessageBinding;
 
 import kun.bdbd.common.base.ARouterPath;
 import kun.bdbd.common.base.BaseFragment;
+import kun.bdbd.common.util.ToastUtils;
 import kun.bdbd.coremodel.datamodel.http.entities.MessageData;
+import kun.bdbd.coremodel.viewmodel.MessageClickCallback;
 import kun.bdbd.coremodel.viewmodel.MessageViewModel;
 
 /**
@@ -38,9 +41,22 @@ public class MessageFragment extends BaseFragment {
         binding.setRecycleAdapter(adapter);
         MessageViewModel viewModel = new MessageViewModel(getActivity().getApplication());
         subscribeToModel(viewModel);
+        binding.setClickCallback(onclick);
         return binding.getRoot();
     }
 
+    //点击去通讯录
+    MessageClickCallback onclick = new MessageClickCallback() {
+        @Override
+        public void onClick(View view) {
+            ToastUtils.showShortToast("店家甲A");
+            ARouter.getInstance().build(ARouterPath.ContactsFgt)
+                    .withTransition(R.anim.activity_up_in, R.anim.activity_up_out)
+                    .navigation(getActivity(), 3);
+        }
+    };
+
+    //点击消息item
     MessageItemClickCallback callback = new MessageItemClickCallback() {
         @Override
         public void onClick(MessageData.ResultsBean messageItem) {

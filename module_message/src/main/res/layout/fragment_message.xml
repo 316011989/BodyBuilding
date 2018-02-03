@@ -7,6 +7,10 @@
         <import type="android.view.View" />
 
         <variable
+            name="clickCallback"
+            type="kun.bdbd.coremodel.viewmodel.MessageClickCallback" />
+
+        <variable
             name="recycleAdapter"
             type="android.support.v7.widget.RecyclerView.Adapter" />
     </data>
@@ -34,7 +38,8 @@
                 android:layout_height="@dimen/size_40dp"
                 android:layout_alignParentRight="true"
                 android:layout_marginRight="@dimen/size_15dp"
-                android:background="@mipmap/ic_launcher" />
+                android:background="@mipmap/ic_launcher"
+                android:onClick="@{clickCallback.onClick}" />
         </RelativeLayout>
 
 
@@ -45,7 +50,6 @@
             android:contentDescription="message list"
             android:orientation="vertical"
             app:adapter="@{recycleAdapter}"
-
             app:layoutManager="StaggeredGridLayoutManager"
             app:spanCount="1" />
     </LinearLayout>
