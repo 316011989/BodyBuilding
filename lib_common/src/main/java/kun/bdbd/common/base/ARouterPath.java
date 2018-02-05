@@ -60,4 +60,9 @@ public class ARouterPath {
     public static final String ContactsFgt = "/message/ContactsFragment";
 
 
+    /**
+     * 消息Activity
+     */
+    public static final String ContactsAct = "/message/ContactsActivity";
+
 }

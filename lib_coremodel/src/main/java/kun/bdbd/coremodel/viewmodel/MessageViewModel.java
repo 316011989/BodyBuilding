@@ -102,6 +102,7 @@ public class MessageViewModel extends AndroidViewModel {
     }
 
 
+
     /**
      * LiveData支持了lifecycle生命周期检测
      *

@@ -1,5 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.kun.module_message">
 
-    <application/>
+    <application>
+        <activity android:name="kun.module_message.ContactsActivity" />
+    </application>
 </manifest>

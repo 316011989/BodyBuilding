@@ -27,6 +27,7 @@ import kun.bdbd.coremodel.viewmodel.MessageViewModel;
 public class MessageFragment extends BaseFragment {
     FragmentMessageBinding binding;
     MessageAdapter adapter;
+    MessageViewModel viewModel;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -39,7 +40,7 @@ public class MessageFragment extends BaseFragment {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_message, container, false);
         adapter = new MessageAdapter(callback);
         binding.setRecycleAdapter(adapter);
-        MessageViewModel viewModel = new MessageViewModel(getActivity().getApplication());
+        viewModel = new MessageViewModel(getActivity().getApplication());
         subscribeToModel(viewModel);
         binding.setClickCallback(onclick);
         return binding.getRoot();
@@ -50,9 +51,14 @@ public class MessageFragment extends BaseFragment {
         @Override
         public void onClick(View view) {
             ToastUtils.showShortToast("店家甲A");
-            ARouter.getInstance().build(ARouterPath.ContactsFgt)
+//            ARouter.getInstance().build(ARouterPath.ContactsAct)
+//                    .withTransition(R.anim.activity_up_in, R.anim.activity_up_out)
+//                    .navigation();
+            ARouter.getInstance()
+                    .build(ARouterPath.ContactsAct)
+                    /**可以针对性跳转跳转动画*/
                     .withTransition(R.anim.activity_up_in, R.anim.activity_up_out)
-                    .navigation(getActivity(), 3);
+                    .navigation(getActivity());
         }
     };
 
