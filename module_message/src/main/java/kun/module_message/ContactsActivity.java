@@ -23,5 +23,9 @@ public class ContactsActivity extends BaseActivity {
         ActivityContactsBinding binding = DataBindingUtil.setContentView(ContactsActivity.this, R.layout.activity_contacts);
         //inject需要注入后才可以读取到携带过来的参数
         ARouter.getInstance().inject(this);
+        binding.contactsTab.addTab(binding.contactsTab.newTab().setText("a"));
+        binding.contactsTab.addTab(binding.contactsTab.newTab().setText("b"));
+        binding.contactsTab.addTab(binding.contactsTab.newTab().setText("c"));
+        binding.contactsTab.addTab(binding.contactsTab.newTab().setText("d"));
     }
 }
