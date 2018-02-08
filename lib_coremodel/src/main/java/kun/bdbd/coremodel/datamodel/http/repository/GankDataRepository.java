@@ -6,6 +6,7 @@ import java.util.Map;
 import io.reactivex.Observable;
 import kun.bdbd.coremodel.datamodel.http.ApiClient;
 import kun.bdbd.coremodel.datamodel.http.entities.DynamicData;
+import kun.bdbd.coremodel.datamodel.http.entities.FriendData;
 import kun.bdbd.coremodel.datamodel.http.entities.MessageData;
 import kun.bdbd.coremodel.datamodel.http.entities.NewsData;
 import kun.bdbd.coremodel.datamodel.http.entities.PublishData;
@@ -35,6 +36,16 @@ public class GankDataRepository {
 
         return observableForGetAndroidDataFromNetWork;
     }
+
+    public static Observable<FriendData> getFriendDataRepository(int size, int index) {
+
+        Observable<FriendData> observableForGetAndroidDataFromNetWork = ApiClient.getGankDataService().getFriendData(size, index);
+
+        //可以操作Observable来筛选网络或者是本地数据
+
+        return observableForGetAndroidDataFromNetWork;
+    }
+
 
 
     public static Observable<MessageData> getMessageDataRepository(int size, int index) {

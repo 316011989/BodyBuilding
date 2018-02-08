@@ -6,8 +6,7 @@ import java.util.List;
  * Created by zhangyl1 on 2018/01/22.
  */
 
-
-public class DynamicData {
+public class FriendData {
 
     private boolean error;
     private List<ResultsBean> results;
