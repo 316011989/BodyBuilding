@@ -1,12 +1,16 @@
 package kun.bdbd.coremodel.datamodel.http.repository;
 
+import java.security.acl.Group;
 import java.util.HashMap;
 import java.util.Map;
 
 import io.reactivex.Observable;
 import kun.bdbd.coremodel.datamodel.http.ApiClient;
 import kun.bdbd.coremodel.datamodel.http.entities.DynamicData;
+import kun.bdbd.coremodel.datamodel.http.entities.FansData;
+import kun.bdbd.coremodel.datamodel.http.entities.FollowData;
 import kun.bdbd.coremodel.datamodel.http.entities.FriendData;
+import kun.bdbd.coremodel.datamodel.http.entities.GroupData;
 import kun.bdbd.coremodel.datamodel.http.entities.MessageData;
 import kun.bdbd.coremodel.datamodel.http.entities.NewsData;
 import kun.bdbd.coremodel.datamodel.http.entities.PublishData;
@@ -46,6 +50,32 @@ public class GankDataRepository {
         return observableForGetAndroidDataFromNetWork;
     }
 
+    public static Observable<FansData> getFansDataRepository(int size, int index) {
+
+        Observable<FansData> observableForGetAndroidDataFromNetWork = ApiClient.getGankDataService().getFansData(size, index);
+
+        //可以操作Observable来筛选网络或者是本地数据
+
+        return observableForGetAndroidDataFromNetWork;
+    }
+
+    public static Observable<FollowData> getFollowDataRepository(int size, int index) {
+
+        Observable<FollowData> observableForGetAndroidDataFromNetWork = ApiClient.getGankDataService().getFollowData(size, index);
+
+        //可以操作Observable来筛选网络或者是本地数据
+
+        return observableForGetAndroidDataFromNetWork;
+    }
+
+    public static Observable<GroupData> getGroupDataRepository(int size, int index) {
+
+        Observable<GroupData> observableForGetAndroidDataFromNetWork = ApiClient.getGankDataService().getGroupData(size, index);
+
+        //可以操作Observable来筛选网络或者是本地数据
+
+        return observableForGetAndroidDataFromNetWork;
+    }
 
 
     public static Observable<MessageData> getMessageDataRepository(int size, int index) {
@@ -56,7 +86,6 @@ public class GankDataRepository {
 
         return observableForGetAndroidDataFromNetWork;
     }
-
 
 
     public static Observable<PublishData> getPublishDataRepository(String size, String index) {

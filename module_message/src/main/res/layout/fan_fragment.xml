@@ -6,8 +6,8 @@
         <import type="android.view.View" />
 
         <variable
-            name="friendViewModel"
-            type="kun.bdbd.coremodel.viewmodel.FriendViewModel" />
+            name="fansViewModel"
+            type="kun.bdbd.coremodel.viewmodel.FansViewModel" />
 
         <variable
             name="recyclerAdapter"
@@ -18,18 +18,19 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+
         <android.support.v4.widget.SwipeRefreshLayout
-            android:id="@+id/dynamic_refreshview"
+            android:id="@+id/fans_refreshview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:onRefreshListener="@{friendViewModel.onRefreshListener}"
-            app:refreshing="@{friendViewModel.isRefreshing}">
+            app:onRefreshListener="@{fansViewModel.onRefreshListener}"
+            app:refreshing="@{fansViewModel.isRefreshing}">
 
             <android.support.v7.widget.RecyclerView
-                android:id="@+id/dynamic_list"
+                android:id="@+id/fans_list"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:contentDescription="dynamic list"
+                android:contentDescription="fans list"
                 android:orientation="vertical"
                 app:adapter="@{recyclerAdapter}"
                 app:layoutManager="StaggeredGridLayoutManager"

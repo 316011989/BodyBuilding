@@ -6,8 +6,8 @@
         <import type="android.view.View" />
 
         <variable
-            name="dynamicViewModel"
-            type="kun.bdbd.coremodel.viewmodel.DynamicViewModel" />
+            name="followViewModel"
+            type="kun.bdbd.coremodel.viewmodel.FollowViewModel" />
 
         <variable
             name="recyclerAdapter"
@@ -20,17 +20,17 @@
         android:orientation="vertical">
 
         <android.support.v4.widget.SwipeRefreshLayout
-            android:id="@+id/dynamic_refreshview"
+            android:id="@+id/follow_refreshview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:onRefreshListener="@{dynamicViewModel.onRefreshListener}"
-            app:refreshing="@{dynamicViewModel.isRefreshing}">
+            app:onRefreshListener="@{followViewModel.onRefreshListener}"
+            app:refreshing="@{followViewModel.isRefreshing}">
 
             <android.support.v7.widget.RecyclerView
-                android:id="@+id/dynamic_list"
+                android:id="@+id/follow_list"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:contentDescription="dynamic list"
+                android:contentDescription="follow list"
                 android:orientation="vertical"
                 app:adapter="@{recyclerAdapter}"
                 app:layoutManager="StaggeredGridLayoutManager"

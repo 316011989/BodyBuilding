@@ -2,7 +2,10 @@ package kun.bdbd.coremodel.datamodel.http.service;
 
 import io.reactivex.Observable;
 import kun.bdbd.coremodel.datamodel.http.entities.DynamicData;
+import kun.bdbd.coremodel.datamodel.http.entities.FansData;
+import kun.bdbd.coremodel.datamodel.http.entities.FollowData;
 import kun.bdbd.coremodel.datamodel.http.entities.FriendData;
+import kun.bdbd.coremodel.datamodel.http.entities.GroupData;
 import kun.bdbd.coremodel.datamodel.http.entities.MessageData;
 import kun.bdbd.coremodel.datamodel.http.entities.NewsData;
 import retrofit2.http.GET;
@@ -50,4 +53,33 @@ public interface GankDataService {
     Observable<FriendData> getFriendData(@Path("size") int size, @Path("index") int index);
 
 
+    /**
+     * 粉丝
+     *
+     * @param size
+     * @param index
+     * @return
+     */
+    @GET("api/data/福利/{size}/{index}")
+    Observable<FansData> getFansData(@Path("size") int size, @Path("index") int index);
+
+    /**
+     * 关注
+     *
+     * @param size
+     * @param index
+     * @return
+     */
+    @GET("api/data/福利/{size}/{index}")
+    Observable<FollowData> getFollowData(@Path("size") int size, @Path("index") int index);
+
+    /**
+     * 群组
+     *
+     * @param size
+     * @param index
+     * @return
+     */
+    @GET("api/data/福利/{size}/{index}")
+    Observable<GroupData> getGroupData(@Path("size") int size, @Path("index") int index);
 }

@@ -7,8 +7,8 @@
         <import type="android.view.View" />
 
         <variable
-            name="dynamicViewModel"
-            type="kun.bdbd.coremodel.viewmodel.DynamicViewModel" />
+            name="groupViewModel"
+            type="kun.bdbd.coremodel.viewmodel.GroupViewModel" />
 
         <variable
             name="recyclerAdapter"
@@ -21,17 +21,17 @@
         android:orientation="vertical">
 
         <android.support.v4.widget.SwipeRefreshLayout
-            android:id="@+id/dynamic_refreshview"
+            android:id="@+id/group_refreshview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:onRefreshListener="@{dynamicViewModel.onRefreshListener}"
-            app:refreshing="@{dynamicViewModel.isRefreshing}">
+            app:onRefreshListener="@{groupViewModel.onRefreshListener}"
+            app:refreshing="@{groupViewModel.isRefreshing}">
 
             <android.support.v7.widget.RecyclerView
-                android:id="@+id/dynamic_list"
+                android:id="@+id/group_list"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:contentDescription="dynamic list"
+                android:contentDescription="group list"
                 android:orientation="vertical"
                 app:adapter="@{recyclerAdapter}"
                 app:layoutManager="StaggeredGridLayoutManager"
