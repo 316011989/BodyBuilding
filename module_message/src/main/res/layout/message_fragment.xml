@@ -12,7 +12,7 @@
 
         <variable
             name="recycleAdapter"
-            type="android.support.v7.widget.RecyclerView.Adapter" />
+            type="kun.module_message.MessageAdapter" />
     </data>
 
 

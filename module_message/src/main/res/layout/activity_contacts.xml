@@ -17,6 +17,25 @@
         android:fitsSystemWindows="true"
         android:orientation="vertical">
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@string/app_name" />
+
+            <Button
+                android:layout_width="@dimen/size_40dp"
+                android:layout_height="@dimen/size_40dp"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="@dimen/size_15dp"
+                android:background="@mipmap/ic_launcher" />
+        </RelativeLayout>
+
         <android.support.design.widget.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

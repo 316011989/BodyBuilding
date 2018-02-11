@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+
         <import type="android.view.View" />
 
         <variable
@@ -11,7 +12,7 @@
 
         <variable
             name="recyclerAdapter"
-            type="android.support.v7.widget.RecyclerView.Adapter" />
+            type="kun.module_message.FollowAdapter" />
     </data>
 
     <LinearLayout
