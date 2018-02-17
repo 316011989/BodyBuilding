@@ -18,7 +18,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/login_bg"
+        android:background="@drawable/bg_black"
         android:fitsSystemWindows="true"
         android:gravity="center_vertical"
         android:orientation="vertical">
@@ -28,7 +28,11 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/size_40dp"
             android:layout_marginRight="@dimen/size_40dp"
-            android:text="@{userList.get(0).userName}" />
+            android:background="@drawable/bg_edittext"
+            android:padding="@dimen/size_10dp"
+            android:text="@{userList.get(0).userName}"
+            android:textCursorDrawable="@drawable/bg_cursor"
+            android:textSize="@dimen/text_size_16sp" />
 
         <EditText
             android:layout_width="match_parent"
@@ -36,7 +40,10 @@
             android:layout_marginLeft="@dimen/size_40dp"
             android:layout_marginRight="@dimen/size_40dp"
             android:layout_marginTop="@dimen/size_20dp"
-            android:text="@{userList.get(0).userId}" />
+            android:background="@drawable/bg_edittext"
+            android:padding="@dimen/size_10dp"
+            android:text="@{userList.get(0).userId}"
+            android:textSize="@dimen/text_size_16sp" />
 
         <Button
             android:id="@+id/login_btn"
@@ -45,9 +52,10 @@
             android:layout_marginLeft="@dimen/size_40dp"
             android:layout_marginRight="@dimen/size_40dp"
             android:layout_marginTop="@dimen/size_40dp"
-            android:background="@color/maincolor"
+            android:background="@color/a"
             android:text="@string/app_name"
-            android:textColor="@color/white_30" />
+            android:textColor="@color/gray_fc"
+            android:textSize="@dimen/text_size_16sp" />
     </LinearLayout>
 
 </layout>

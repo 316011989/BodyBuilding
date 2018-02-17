@@ -38,7 +38,7 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/size_50dp"
             android:layout_gravity="bottom"
-            android:background="@color/c"
+            android:background="@color/a"
             app:menu="@menu/navigation"
             bind:onNavigationItemSelectedListener="@{onNavigationItemSelectedListener}" />
 

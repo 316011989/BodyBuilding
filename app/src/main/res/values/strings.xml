@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">BodyBuilding</string>
+    <string name="app_name">Hot shot Fitness</string>
+    <string name="module1">动态</string>
+    <string name="module2">消息</string>
+    <string name="module3">关于</string>
+    <string name="module4">我的</string>
 </resources>

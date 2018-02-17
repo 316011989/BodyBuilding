@@ -6,6 +6,12 @@
 
     <data>
 
+        <import type="android.view.View" />
+
+        <variable
+            name="clickCallback"
+            type="kun.bdbd.coremodel.viewmodel.MessageClickCallback" />
+
         <variable
             name="fragmentAdapter"
             type="kun.module_message.ContactsFragmentAdapter" />
@@ -33,7 +39,8 @@
                 android:layout_height="@dimen/size_40dp"
                 android:layout_alignParentLeft="true"
                 android:layout_marginLeft="@dimen/size_15dp"
-                android:background="@mipmap/ic_launcher" />
+                android:background="@mipmap/ic_launcher"
+                android:onClick="@{clickCallback.onClick}" />
         </RelativeLayout>
 
         <android.support.design.widget.AppBarLayout

@@ -2,13 +2,16 @@ package kun.module_message;
 
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
+import android.view.View;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.kun.module_message.R;
 import com.kun.module_message.databinding.ActivityContactsBinding;
 
 import kun.bdbd.common.base.ARouterPath;
 import kun.bdbd.common.base.BaseActivity;
+import kun.bdbd.coremodel.viewmodel.MessageClickCallback;
 
 /**
  * Created by HOME_PC on 2018/2/6.
@@ -28,5 +31,11 @@ public class ContactsActivity extends BaseActivity {
         binding.contactsTab.addTab(binding.contactsTab.newTab().setText("c"));
         binding.contactsTab.addTab(binding.contactsTab.newTab().setText("d"));
         binding.contactsTab.setupWithViewPager(binding.contactsContent);
+        binding.setClickCallback(new MessageClickCallback() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
     }
 }

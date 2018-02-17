@@ -50,10 +50,6 @@ public class MessageFragment extends BaseFragment {
     MessageClickCallback onclick = new MessageClickCallback() {
         @Override
         public void onClick(View view) {
-            ToastUtils.showShortToast("店家甲A");
-//            ARouter.getInstance().build(ARouterPath.ContactsAct)
-//                    .withTransition(R.anim.activity_up_in, R.anim.activity_up_out)
-//                    .navigation();
             ARouter.getInstance()
                     .build(ARouterPath.ContactsAct)
                     /**可以针对性跳转跳转动画*/

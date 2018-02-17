@@ -3,10 +3,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".WelcomeActivity">
 
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="clickCallback"
+            type="kun.module_login.OnClickCallback" />
+    </data>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/common_bg"
+        android:background="@drawable/bg_black"
         android:orientation="vertical">
 
 
@@ -21,9 +30,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal|bottom"
-                android:layout_marginBottom="@dimen/size_40dp"
+                android:layout_marginBottom="@dimen/size_60dp"
+                android:onClick="@{clickCallback.onClick}"
                 android:text="@string/app_name"
-                android:textColor="@color/maincolor" />
+                android:textColor="@color/a"
+                android:textSize="@dimen/text_size_20sp" />
         </FrameLayout>
 
     </LinearLayout>

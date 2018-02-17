@@ -24,19 +24,19 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/c"
+            android:background="@color/a"
             android:gravity="center_vertical"
             android:orientation="horizontal"
             android:paddingBottom="@dimen/size_10dp"
             android:paddingLeft="@dimen/size_10dp"
-            android:paddingTop="@dimen/size_30dp"
-            android:paddingRight="@dimen/size_10dp">
+            android:paddingRight="@dimen/size_10dp"
+            android:paddingTop="@dimen/size_30dp">
 
             <android.support.v7.widget.SearchView
                 android:layout_width="0dp"
                 android:layout_height="@dimen/size_30dp"
                 android:layout_weight="1"
-                android:background="@drawable/round_background"
+                android:background="@drawable/bg_edittext"
                 android:iconifiedByDefault="true"
                 android:queryHint="@string/app_name"
                 app:defaultQueryHint="@string/app_name" />

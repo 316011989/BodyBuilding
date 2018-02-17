@@ -13,16 +13,15 @@ import kun.module_login.databinding.ActivityWelcomeBinding;
 
 @Route(path = ARouterPath.WelcomeActivity)
 public class WelcomeActivity extends BaseActivity {
-    ActivityWelcomeBinding activityWelcomeBinding;
+    ActivityWelcomeBinding binding;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setTitle("Module_WelcomeActivity");//不显示标题栏
-        activityWelcomeBinding = DataBindingUtil.setContentView(WelcomeActivity.this, R.layout.activity_welcome);
-
-        activityWelcomeBinding.welcomeLogo.setOnClickListener(new View.OnClickListener() {
+        binding = DataBindingUtil.setContentView(WelcomeActivity.this, R.layout.activity_welcome);
+        binding.setClickCallback(new OnClickCallback() {
             @Override
             public void onClick(View view) {
                 ARouter.getInstance()
