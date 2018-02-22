@@ -31,14 +31,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:text="@string/app_name" />
+                android:text="@string/message_history" />
 
             <Button
                 android:layout_width="@dimen/size_40dp"
                 android:layout_height="@dimen/size_40dp"
                 android:layout_alignParentRight="true"
                 android:layout_marginRight="@dimen/size_15dp"
-                android:background="@mipmap/ic_launcher"
+                android:background="@mipmap/ic_people_outline_black"
                 android:onClick="@{clickCallback.onClick}" />
         </RelativeLayout>
 
