@@ -2,7 +2,6 @@ apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion build_versions.target_sdk
-    buildToolsVersion build_versions.build_tools
 
     defaultConfig {
         minSdkVersion build_versions.min_sdk
@@ -21,14 +20,15 @@ android {
         }
     }
 
+    buildToolsVersion '27.0.3'
 }
 
 dependencies {
 
     api fileTree(dir: 'libs', include: ['*.jar'])
-    testApi 'junit:junit:4.12'
-    androidTestApi 'com.android.support.test:runner:1.0.1'
-    androidTestApi 'com.android.support.test.espresso:espresso-core:3.0.1'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
 
     // Support libraries
     api deps.support.app_compat
