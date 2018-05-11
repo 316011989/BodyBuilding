@@ -36,7 +36,7 @@
                 android:layout_marginTop="@dimen/size_10dp"
                 bind:image="@{friendItem.url}"
                 fresco:actualImageScaleType="centerCrop"
-                fresco:placeholderImage="@mipmap/ic_launcher_round"
+                fresco:placeholderImage="@drawable/simpledraweeview_placeholder"
                 fresco:placeholderImageScaleType="centerCrop"
                 fresco:roundAsCircle="true"
                 fresco:roundingBorderWidth="0dp" />

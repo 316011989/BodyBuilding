@@ -49,7 +49,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/app_name"
-                        android:textColor="@color/common_text"
+                        android:textColor="@color/white"
                         android:textSize="@dimen/text_size_20sp" />
 
                     <TextView
@@ -57,7 +57,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/app_name"
-                        android:textColor="@color/white_30"
+                        android:textColor="@color/white"
                         android:textSize="@dimen/text_size_15sp" />
                 </LinearLayout>
 
@@ -80,13 +80,13 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="99"
-                            android:textColor="@color/white_30" />
+                            android:textColor="@color/white" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="动态"
-                            android:textColor="@color/white_30" />
+                            android:textColor="@color/white" />
 
                     </LinearLayout>
 
@@ -103,13 +103,13 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="99"
-                            android:textColor="@color/white_30" />
+                            android:textColor="@color/white" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="关注"
-                            android:textColor="@color/white_30" />
+                            android:textColor="@color/white" />
 
                     </LinearLayout>
 
@@ -126,13 +126,13 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="99"
-                            android:textColor="@color/white_30" />
+                            android:textColor="@color/white" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="粉丝"
-                            android:textColor="@color/white_30" />
+                            android:textColor="@color/white" />
 
                     </LinearLayout>
 
@@ -149,7 +149,7 @@
                 <com.facebook.drawee.view.SimpleDraweeView
                     android:layout_width="@dimen/size_30dp"
                     android:layout_height="@dimen/size_30dp"
-                    app:placeholderImage="@mipmap/ic_launcher" />
+                    app:placeholderImage="@drawable/simpledraweeview_placeholder" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -171,7 +171,7 @@
                 <com.facebook.drawee.view.SimpleDraweeView
                     android:layout_width="@dimen/size_30dp"
                     android:layout_height="@dimen/size_30dp"
-                    app:placeholderImage="@mipmap/ic_launcher" />
+                    app:placeholderImage="@drawable/simpledraweeview_placeholder" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -193,7 +193,7 @@
                 <com.facebook.drawee.view.SimpleDraweeView
                     android:layout_width="@dimen/size_30dp"
                     android:layout_height="@dimen/size_30dp"
-                    app:placeholderImage="@mipmap/ic_launcher" />
+                    app:placeholderImage="@drawable/simpledraweeview_placeholder" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -215,7 +215,7 @@
                 <com.facebook.drawee.view.SimpleDraweeView
                     android:layout_width="@dimen/size_30dp"
                     android:layout_height="@dimen/size_30dp"
-                    app:placeholderImage="@mipmap/ic_launcher" />
+                    app:placeholderImage="@drawable/simpledraweeview_placeholder" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -238,7 +238,7 @@
                 <com.facebook.drawee.view.SimpleDraweeView
                     android:layout_width="@dimen/size_30dp"
                     android:layout_height="@dimen/size_30dp"
-                    app:placeholderImage="@mipmap/ic_launcher" />
+                    app:placeholderImage="@drawable/simpledraweeview_placeholder" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -260,7 +260,7 @@
                 <com.facebook.drawee.view.SimpleDraweeView
                     android:layout_width="@dimen/size_30dp"
                     android:layout_height="@dimen/size_30dp"
-                    app:placeholderImage="@mipmap/ic_launcher" />
+                    app:placeholderImage="@drawable/simpledraweeview_placeholder" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -282,7 +282,7 @@
                 <com.facebook.drawee.view.SimpleDraweeView
                     android:layout_width="@dimen/size_30dp"
                     android:layout_height="@dimen/size_30dp"
-                    app:placeholderImage="@mipmap/ic_launcher" />
+                    app:placeholderImage="@drawable/simpledraweeview_placeholder" />
 
                 <TextView
                     android:layout_width="wrap_content"

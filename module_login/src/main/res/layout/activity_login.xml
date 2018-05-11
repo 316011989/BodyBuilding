@@ -5,14 +5,13 @@
 
     <data>
 
-
         <import type="java.util.List" />
 
         <import type="kun.bdbd.common.ui.UserData" />
 
         <variable
             name="userList"
-            type="List&lt;UserData&gt;" />
+            type="java.util.List&lt;kun.bdbd.common.ui.UserData&gt;" />
     </data>
 
     <LinearLayout
