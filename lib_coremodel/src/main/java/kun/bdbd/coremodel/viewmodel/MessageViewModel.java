@@ -51,9 +51,9 @@ public class MessageViewModel extends AndroidViewModel {
     private int count = 20;
     private int index = 1;
 
-    public MessageViewModel(@NonNull Application application) {
-        super(application);
-        this.application = application;
+    public MessageViewModel(@NonNull Application app) {
+        super(app);
+        this.application = app;
         mLiveObservableData = Transformations.switchMap(NetUtils.netConnected(application), new Function<Boolean, LiveData<MessageData>>() {
             @Override
             public LiveData<MessageData> apply(Boolean isNetConnected) {

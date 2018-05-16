@@ -50,9 +50,9 @@ public class FriendViewModel extends AndroidViewModel {
     private int count = 20;
     private int index = 1;
 
-    public FriendViewModel(@NonNull Application application) {
-        super(application);
-        this.application = application;
+    public FriendViewModel(@NonNull Application app) {
+        super(app);
+        this.application = app;
         mLiveObservableData = Transformations.switchMap(NetUtils.netConnected(application), new Function<Boolean, LiveData<FriendData>>() {
             @Override
             public LiveData<FriendData> apply(Boolean isNetConnected) {

@@ -16,6 +16,11 @@ public class ARouterPath {
     public static final String WelcomeActivity = "/login/welcomeactivity";
 
     /**
+     * 引导页面
+     */
+    public static final String GuideActivity = "/login/GuideActivity";
+
+    /**
      * 登录页面Activity
      */
     public static final String LoginActivity = "/login/loginactivity";

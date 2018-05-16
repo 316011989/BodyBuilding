@@ -15,15 +15,13 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/bg_black"
+        android:background="@color/common_bg"
         android:orientation="vertical">
-
 
         <FrameLayout
             android:id="@+id/girls_list_wrapper"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-
 
             <TextView
                 android:id="@+id/welcome_logo"

@@ -1,11 +1,16 @@
 package kun.module_login;
 
 import android.databinding.DataBindingUtil;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
+
+import java.lang.reflect.Field;
 
 import kun.bdbd.common.base.ARouterPath;
 import kun.bdbd.common.base.BaseActivity;
@@ -25,13 +30,13 @@ public class WelcomeActivity extends BaseActivity {
             @Override
             public void onClick(View view) {
                 ARouter.getInstance()
-                        .build(ARouterPath.LoginActivity)
+                        .build(ARouterPath.GuideActivity)
                         /**可以针对性跳转跳转动画*/
                         .withTransition(R.anim.activity_up_in, R.anim.activity_up_out)
                         .navigation(WelcomeActivity.this);
             }
         });
-
     }
+
 
 }

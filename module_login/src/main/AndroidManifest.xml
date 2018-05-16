@@ -4,8 +4,8 @@
 
     <application>
         <activity android:name=".WelcomeActivity" />
-
         <activity android:name=".LoginActivity" />
+        <activity android:name=".GuideActivity" />
     </application>
 
 </manifest>

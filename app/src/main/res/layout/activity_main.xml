@@ -14,8 +14,6 @@
         <variable
             name="viewPaAdapter"
             type="android.support.v4.app.FragmentStatePagerAdapter" />
-
-
     </data>
 
     <LinearLayout
