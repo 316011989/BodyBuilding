@@ -50,9 +50,9 @@ public class FansViewModel extends AndroidViewModel {
     private int count = 20;
     private int index = 1;
 
-    public FansViewModel(@NonNull Application application) {
-        super(application);
-        this.application = application;
+    public FansViewModel(@NonNull Application app) {
+        super(app);
+        this.application = app;
         mLiveObservableData = Transformations.switchMap(NetUtils.netConnected(application), new Function<Boolean, LiveData<FansData>>() {
             @Override
             public LiveData<FansData> apply(Boolean isNetConnected) {

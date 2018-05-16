@@ -23,12 +23,16 @@ import io.reactivex.schedulers.Schedulers;
  */
 
 public class NewsViewModel extends AndroidViewModel {
+    Application application;
 
     private static final MutableLiveData ABSENT = new MutableLiveData();
+
     {
         //noinspection unchecked
         ABSENT.setValue(null);
     }
+
+    MutableLiveData<NewsData> applyData = new MutableLiveData<>();
 
     //生命周期观察的数据
     private LiveData<NewsData> mLiveObservableData;
@@ -37,8 +41,9 @@ public class NewsViewModel extends AndroidViewModel {
 
     private final CompositeDisposable mDisposable = new CompositeDisposable();
 
-    public NewsViewModel(@NonNull Application application) {
-        super(application);
+    public NewsViewModel(@NonNull Application app) {
+        super(app);
+        this.application = app;
         Log.i("danxx", "VideosViewModel------>");
         //这里的trigger为网络检测，也可以换成缓存数据是否存在检测
         mLiveObservableData = Transformations.switchMap(NetUtils.netConnected(application), new android.arch.core.util.Function<Boolean, LiveData<NewsData>>() {
@@ -49,7 +54,6 @@ public class NewsViewModel extends AndroidViewModel {
                 if (!isNetConnected) {
                     return ABSENT; //网络未连接返回空
                 }
-                MutableLiveData<NewsData> applyData = new MutableLiveData<>();
 
                 GankDataRepository.getNewsDataRepository("20", "1")
                         .subscribeOn(Schedulers.io())
@@ -79,8 +83,10 @@ public class NewsViewModel extends AndroidViewModel {
         });
 
     }
+
     /**
      * LiveData支持了lifecycle生命周期检测
+     *
      * @return
      */
     public LiveData<NewsData> getLiveObservableData() {
@@ -89,6 +95,7 @@ public class NewsViewModel extends AndroidViewModel {
 
     /**
      * 设置
+     *
      * @param product
      */
     public void setUiObservableData(NewsData product) {

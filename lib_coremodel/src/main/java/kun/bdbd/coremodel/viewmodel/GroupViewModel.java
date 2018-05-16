@@ -50,9 +50,9 @@ public class GroupViewModel extends AndroidViewModel {
     private int count = 20;
     private int index = 1;
 
-    public GroupViewModel(@NonNull Application application) {
-        super(application);
-        this.application = application;
+    public GroupViewModel(@NonNull Application app) {
+        super(app);
+        this.application = app;
         mLiveObservableData = Transformations.switchMap(NetUtils.netConnected(application), new Function<Boolean, LiveData<GroupData>>() {
             @Override
             public LiveData<GroupData> apply(Boolean isNetConnected) {

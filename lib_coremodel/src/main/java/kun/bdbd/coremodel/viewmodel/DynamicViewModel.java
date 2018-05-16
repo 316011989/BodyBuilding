@@ -50,9 +50,9 @@ public class DynamicViewModel extends AndroidViewModel {
     private int count = 20;
     private int index = 1;
 
-    public DynamicViewModel(@NonNull Application application) {
-        super(application);
-        this.application = application;
+    public DynamicViewModel(@NonNull Application app) {
+        super(app);
+        this.application = app;
         mLiveObservableData = Transformations.switchMap(NetUtils.netConnected(application), new Function<Boolean, LiveData<DynamicData>>() {
             @Override
             public LiveData<DynamicData> apply(Boolean isNetConnected) {

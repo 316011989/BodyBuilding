@@ -80,10 +80,10 @@ public class MainActivity extends BaseActivity {
         mAdapter = new FragmentAdapter(getSupportFragmentManager(), mFragments);
         mainBinding.setViewPaAdapter(mAdapter);
 
-        //让虚拟键盘一直不显示
+        //让虚拟按键一直不显示
         Window window = getWindow();
         WindowManager.LayoutParams params = window.getAttributes();
-        params.systemUiVisibility = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_IMMERSIVE;
+        params.systemUiVisibility = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
         window.setAttributes(params);
     }
 }

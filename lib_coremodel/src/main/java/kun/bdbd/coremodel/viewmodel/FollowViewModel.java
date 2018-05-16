@@ -50,9 +50,9 @@ public class FollowViewModel extends AndroidViewModel {
     private int count = 20;
     private int index = 1;
 
-    public FollowViewModel(@NonNull Application application) {
-        super(application);
-        this.application = application;
+    public FollowViewModel(@NonNull Application app) {
+        super(app);
+        this.application = app;
         mLiveObservableData = Transformations.switchMap(NetUtils.netConnected(application), new Function<Boolean, LiveData<FollowData>>() {
             @Override
             public LiveData<FollowData> apply(Boolean isNetConnected) {

@@ -31,6 +31,7 @@ public class PublishViewModel extends AndroidViewModel {
         ABSENT.setValue(null);
     }
 
+    MutableLiveData<PublishData> applyData = new MutableLiveData<>();
     //生命周期观察的数据
     private LiveData<PublishData> mLiveObservableData;
     //UI使用可观察的数据 ObservableField是一个包装类
@@ -50,7 +51,6 @@ public class PublishViewModel extends AndroidViewModel {
                 if (!isNetConnected) {
                     return ABSENT; //网络未连接返回空
                 }
-                MutableLiveData<PublishData> applyData = new MutableLiveData<>();
 
                 GankDataRepository.getPublishDataRepository("20", "1")
                         .subscribeOn(Schedulers.io())
