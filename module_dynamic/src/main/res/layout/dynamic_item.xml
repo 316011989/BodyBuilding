@@ -82,22 +82,25 @@
 
             <com.facebook.drawee.view.SimpleDraweeView
                 android:layout_width="@dimen/size_100dp"
-                android:layout_height="@dimen/size_100dp"
+                android:layout_height="@dimen/size_80dp"
                 app:placeholderImage="@drawable/simpledraweeview_placeholder"
+                app:roundedCornerRadius="@dimen/size_2dp"
                 bind:image="@{dynamicItem.url}" />
 
             <com.facebook.drawee.view.SimpleDraweeView
                 android:layout_width="@dimen/size_100dp"
-                android:layout_height="@dimen/size_100dp"
+                android:layout_height="@dimen/size_80dp"
                 android:layout_marginLeft="@dimen/size_10dp"
                 app:placeholderImage="@drawable/simpledraweeview_placeholder"
+                app:roundedCornerRadius="@dimen/size_2dp"
                 bind:image="@{dynamicItem.url}" />
 
             <com.facebook.drawee.view.SimpleDraweeView
                 android:layout_width="@dimen/size_100dp"
-                android:layout_height="@dimen/size_100dp"
+                android:layout_height="@dimen/size_80dp"
                 android:layout_marginLeft="@dimen/size_10dp"
                 app:placeholderImage="@drawable/simpledraweeview_placeholder"
+                app:roundedCornerRadius="@dimen/size_2dp"
                 bind:image="@{dynamicItem.url}" />
         </LinearLayout>
 

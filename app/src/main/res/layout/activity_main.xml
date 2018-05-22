@@ -8,10 +8,6 @@
     <data>
 
         <variable
-            name="onNavigationItemSelectedListener"
-            type="android.support.design.widget.BottomNavigationView.OnNavigationItemSelectedListener" />
-
-        <variable
             name="viewPaAdapter"
             type="android.support.v4.app.FragmentStatePagerAdapter" />
     </data>
@@ -30,15 +26,59 @@
             android:layout_weight="1"
             bind:viewPagerAdapter="@{viewPaAdapter}" />
 
-
-        <android.support.design.widget.BottomNavigationView
-            android:id="@+id/navigation"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/size_50dp"
-            android:layout_gravity="bottom"
-            android:background="@color/a"
-            app:menu="@menu/navigation"
-            bind:onNavigationItemSelectedListener="@{onNavigationItemSelectedListener}" />
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="@dimen/size_5dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawablePadding="@dimen/size_5dp"
+                android:drawableTop="@mipmap/photo"
+                android:gravity="center_horizontal"
+                android:text="@string/module1"
+                android:textSize="@dimen/text_size_10sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawablePadding="@dimen/size_5dp"
+                android:drawableTop="@mipmap/chat"
+                android:gravity="center_horizontal"
+                android:text="@string/module2"
+                android:textSize="@dimen/text_size_10sp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@mipmap/add" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawablePadding="@dimen/size_5dp"
+                android:drawableTop="@mipmap/cards"
+                android:gravity="center_horizontal"
+                android:text="@string/module3"
+                android:textSize="@dimen/text_size_10sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawablePadding="@dimen/size_5dp"
+                android:drawableTop="@mipmap/camera"
+                android:gravity="center_horizontal"
+                android:text="@string/module4"
+                android:textSize="@dimen/text_size_10sp" />
+        </LinearLayout>
+
 
     </LinearLayout>
 

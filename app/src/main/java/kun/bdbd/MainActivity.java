@@ -34,36 +34,34 @@ public class MainActivity extends BaseActivity {
     private List<BaseFragment> mFragments = new ArrayList<>();
     private FragmentAdapter mAdapter;
 
-    public BottomNavigationView.OnNavigationItemSelectedListener onNavigationItemSelectedListener
-            = new BottomNavigationView.OnNavigationItemSelectedListener() {
-
-        @Override
-        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-            int i = item.getItemId();
-            if (i == R.id.navigation_dynamic) {
-                mPager.setCurrentItem(0);
-                return true;
-            } else if (i == R.id.navigation_publish) {
-                mPager.setCurrentItem(2);
-                return true;
-            } else if (i == R.id.navigation_mine) {
-                mPager.setCurrentItem(3);
-                return true;
-            } else if (i == R.id.navigation_message) {
-                mPager.setCurrentItem(1);
-                return true;
-            }
-            return false;
-        }
-
-    };
+//    public BottomNavigationView.OnNavigationItemSelectedListener onNavigationItemSelectedListener
+//            = new BottomNavigationView.OnNavigationItemSelectedListener() {
+//
+//        @Override
+//        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+//            int i = item.getItemId();
+//            if (i == R.id.navigation_dynamic) {
+//                mPager.setCurrentItem(0);
+//                return true;
+//            } else if (i == R.id.navigation_publish) {
+//                mPager.setCurrentItem(2);
+//                return true;
+//            } else if (i == R.id.navigation_mine) {
+//                mPager.setCurrentItem(3);
+//                return true;
+//            } else if (i == R.id.navigation_message) {
+//                mPager.setCurrentItem(1);
+//                return true;
+//            }
+//            return false;
+//        }
+//
+//    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mainBinding = DataBindingUtil.setContentView(MainActivity.this, R.layout.activity_main);
-        mainBinding.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener);
-        BottomNavigationViewHelper.disableShiftMode(mainBinding.navigation);
         mPager = mainBinding.containerPager;
         mPager.setOffscreenPageLimit(3);
 

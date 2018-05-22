@@ -30,7 +30,7 @@ public class WelcomeActivity extends BaseActivity {
             @Override
             public void onClick(View view) {
                 ARouter.getInstance()
-                        .build(ARouterPath.GuideActivity)
+                        .build(ARouterPath.LoginActivity)
                         /**可以针对性跳转跳转动画*/
                         .withTransition(R.anim.activity_up_in, R.anim.activity_up_out)
                         .navigation(WelcomeActivity.this);
